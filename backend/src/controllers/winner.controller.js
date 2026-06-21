@@ -70,7 +70,7 @@ const getAllVerifications = async (req, res, next) => {
       .from('winner_verifications')
       .select(`
         id, prize_amount, proof_url, status, admin_notes, reviewed_at, paid_at, created_at,
-        users (id, full_name, email),
+        users!winner_verifications_user_id_fkey (id, full_name, email),
         draws (id, draw_type, draw_date)
       `, { count: 'exact' })
       .order('created_at', { ascending: false })
