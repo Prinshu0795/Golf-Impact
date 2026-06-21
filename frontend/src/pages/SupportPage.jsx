@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MessageSquare, Send, CheckCircle, HeadphonesIcon, Clock, Shield } from 'lucide-react';
 import api from '../services/api';
 
-const SUPPORT_EMAIL = 'pprincegupta06@gmail.com';
+const SUPPORT_EMAIL = 'golfimpact.support@gmail.com';
 const SUPPORT_PHONE = '+916388626778';
 const SUPPORT_PHONE_DISPLAY = '+91 6388626778';
 

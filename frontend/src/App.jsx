@@ -16,6 +16,8 @@ import AdminLayout from './layouts/AdminLayout';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/auth/LoginPage';
 import SignupPage from './pages/auth/SignupPage';
+import ForgotPasswordPage from './pages/auth/ForgotPasswordPage';
+import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import CharityListPage from './pages/CharityListPage';
 import CharityProfilePage from './pages/CharityProfilePage';
 import SupportPage from './pages/SupportPage';
@@ -54,6 +56,8 @@ function App() {
                   <Route path="/support" element={<SupportPage />} />
                   <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
                   <Route path="/signup" element={<PublicRoute><SignupPage /></PublicRoute>} />
+                  <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
+                  <Route path="/reset-password" element={<PublicRoute><ResetPasswordPage /></PublicRoute>} />
                 </Route>
 
                 {/* Dashboard routes */}

@@ -70,6 +70,11 @@ export default function LoginPage() {
               </button>
             </div>
             {errors.password && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.375rem' }}>{errors.password.message}</p>}
+            <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
+              <Link to="/forgot-password" style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 600, textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#34d399'} onMouseLeave={(e) => e.target.style.color = '#10b981'}>
+                Forgot Password?
+              </Link>
+            </div>
           </div>
 
           <button type="submit" className="btn-primary" id="login-submit" disabled={loading} style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>

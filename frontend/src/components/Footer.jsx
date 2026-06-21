@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Target, Mail, Phone, Heart } from 'lucide-react';
 
-const SUPPORT_EMAIL = 'pprincegupta06@gmail.com';
+const SUPPORT_EMAIL = 'golfimpact.support@gmail.com';
 const SUPPORT_PHONE_DISPLAY = '+91 6388626778';
 const SUPPORT_PHONE = '+916388626778';
 

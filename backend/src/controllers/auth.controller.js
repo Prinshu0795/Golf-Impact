@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
 const supabase = require('../config/supabase');
 const { signToken, cookieOptions } = require('../config/jwt');
-
 // POST /api/auth/signup
 const signup = async (req, res, next) => {
   try {
@@ -172,4 +173,101 @@ const changePassword = async (req, res, next) => {
   }
 };
 
-module.exports = { signup, login, logout, getMe, changePassword };
+// POST /api/auth/forgot-password
+const forgotPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({ success: false, message: 'Email is required.' });
+    }
+
+    const { data: user, error } = await supabase
+      .from('users')
+      .select('id, email, password_hash')
+      .eq('email', email.toLowerCase())
+      .single();
+
+    if (error || !user) {
+      return res.json({ success: true, message: 'If an account with that email exists, a reset link has been sent.' });
+    }
+
+    const secret = process.env.JWT_SECRET + user.password_hash;
+    const token = jwt.sign({ id: user.id, email: user.email }, secret, { expiresIn: '15m' });
+
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+    const resetLink = `${frontendUrl}/reset-password?token=${token}&id=${user.id}`;
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtp.ethereal.email',
+      port: process.env.SMTP_PORT || 587,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    try {
+      if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+        await transporter.sendMail({
+          from: '"Golf Impact Support" <golfimpact.support@gmail.com>',
+          to: user.email,
+          subject: 'Reset your password - Golf Impact',
+          html: `<p>You requested a password reset. Click the link below to set a new password. This link expires in 15 minutes.</p><p><a href="${resetLink}">Reset Password</a></p>`,
+        });
+      } else {
+        console.log('\\n--- PASSWORD RESET LINK ---');
+        console.log(resetLink);
+        console.log('---------------------------\\n');
+      }
+    } catch (emailErr) {
+      console.error('Email send failed:', emailErr);
+      console.log('Fallback link:', resetLink);
+    }
+
+    res.json({ success: true, message: 'If an account with that email exists, a reset link has been sent.' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// POST /api/auth/reset-password
+const resetPassword = async (req, res, next) => {
+  try {
+    const { id, token, new_password } = req.body;
+
+    if (!id || !token || !new_password) {
+      return res.status(400).json({ success: false, message: 'Invalid request parameters.' });
+    }
+    if (new_password.length < 8) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 8 characters.' });
+    }
+
+    const { data: user, error } = await supabase
+      .from('users')
+      .select('id, password_hash')
+      .eq('id', id)
+      .single();
+
+    if (error || !user) {
+      return res.status(400).json({ success: false, message: 'Invalid or expired token.' });
+    }
+
+    const secret = process.env.JWT_SECRET + user.password_hash;
+    try {
+      jwt.verify(token, secret);
+    } catch (err) {
+      return res.status(400).json({ success: false, message: 'Invalid or expired token.' });
+    }
+
+    const password_hash = await bcrypt.hash(new_password, 12);
+    const { error: updateError } = await supabase.from('users').update({ password_hash }).eq('id', user.id);
+
+    if (updateError) throw updateError;
+
+    res.json({ success: true, message: 'Password updated successfully.' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { signup, login, logout, getMe, changePassword, forgotPassword, resetPassword };
