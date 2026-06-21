@@ -27,16 +27,16 @@ export default function DashboardLayout() {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '1.5rem 1rem' }}>
       {/* Logo */}
       <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none' }}>
-        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Target size={18} color="white" />
         </div>
-        <span style={{ fontFamily: 'Outfit', fontWeight: 800, background: 'linear-gradient(135deg, #6366f1, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Golf Impact</span>
+        <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>Golf Impact</span>
       </Link>
 
       {/* User Card */}
-      <div style={{ padding: '1rem', background: 'rgba(99,102,241,0.06)', borderRadius: '12px', border: '1px solid rgba(99,102,241,0.12)', marginBottom: '1.5rem' }}>
+      <div style={{ padding: '1rem', background: 'rgba(34,197,94,0.06)', borderRadius: '12px', border: '1px solid rgba(34,197,94,0.12)', marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
+          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
             {user?.full_name?.[0] || 'U'}
           </div>
           <div style={{ overflow: 'hidden' }}>
@@ -108,11 +108,11 @@ export default function DashboardLayout() {
       {/* Main content */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
         {/* Mobile topbar */}
-        <div style={{ display: 'none', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem', background: 'var(--bg-surface)', borderBottom: '1px solid rgba(255,255,255,0.05)' }} className="mobile-topbar">
-          <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#f8fafc' }}>
+        <div style={{ display: 'none', alignItems: 'center', justifyContent: 'space-between', padding: '1rem 1.5rem', background: 'var(--bg-surface)', borderBottom: '1px solid var(--bg-border-light)' }} className="mobile-topbar">
+          <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)' }}>
             <Menu size={24} />
           </button>
-          <span style={{ fontFamily: 'Outfit', fontWeight: 700, color: '#818cf8' }}>Golf Impact</span>
+          <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>Golf Impact</span>
           <div style={{ width: '24px' }} />
         </div>
 

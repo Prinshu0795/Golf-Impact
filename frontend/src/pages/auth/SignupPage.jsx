@@ -44,7 +44,7 @@ export default function SignupPage() {
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
         style={{ width: '100%', maxWidth: '480px', position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981, #059669)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', boxShadow: '0 0 30px rgba(16,185,129,0.3)' }}>
+          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', boxShadow: '0 0 30px rgba(34,197,94,0.3)' }}>
             <Target size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Create Your Account</h1>
@@ -120,13 +120,13 @@ export default function SignupPage() {
           </div>
 
           <button type="submit" className="btn-primary" id="signup-submit" disabled={loading}
-            style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', background: 'linear-gradient(135deg, #10b981, #059669)' }}>
+            style={{ width: '100%', padding: '0.875rem', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
             {loading ? <><Spinner size={18} color="white" /> Creating account...</> : 'Create Account 🎯'}
           </button>
 
           <p style={{ textAlign: 'center', color: '#64748b', fontSize: '0.875rem' }}>
             Already have an account?{' '}
-            <Link to="/login" style={{ color: '#818cf8', fontWeight: 600 }}>Sign in</Link>
+            <Link to="/login" style={{ color: '#22C55E', fontWeight: 600 }}>Sign in</Link>
           </p>
         </form>
       </motion.div>

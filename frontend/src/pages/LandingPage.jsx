@@ -37,7 +37,7 @@ function HeroSection() {
       <div className="animate-float" style={{ position: 'absolute', top: '20%', right: '10%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div className="animate-float delay-300" style={{ position: 'absolute', bottom: '20%', left: '5%', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', width: '100%', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 1.5rem', width: '100%', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '780px' }}>
           {/* Badge */}
           <motion.div variants={fadeUp} initial="hidden" animate="visible" style={{ marginBottom: '2rem' }}>
@@ -77,7 +77,7 @@ function HeroSection() {
               { label: 'Monthly Draws', value: '24', color: '#fbbf24' },
             ].map(({ label, value, color }) => (
               <div key={label}>
-                <p style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Outfit' }}>{value}</p>
+                <p style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Inter, system-ui, sans-serif' }}>{value}</p>
                 <p style={{ fontSize: '0.8rem', color: '#64748b' }}>{label}</p>
               </div>
             ))}
@@ -101,7 +101,7 @@ const features = [
 function FeaturesSection() {
   return (
     <section id="features" style={{ padding: '6rem 1.5rem' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <AnimatedSection style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <motion.p variants={fadeUp} style={{ color: '#818cf8', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Everything You Need</motion.p>
           <motion.h2 variants={fadeUp} style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800, marginBottom: '1rem' }}>
@@ -141,7 +141,7 @@ function DrawProcessSection() {
     <section id="how-it-works" style={{ padding: '6rem 1.5rem', background: 'var(--bg-surface)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
-      <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
         <AnimatedSection style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <motion.p variants={fadeUp} style={{ color: '#818cf8', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>The Draw Process</motion.p>
           <motion.h2 variants={fadeUp} style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', fontWeight: 800 }}>How Golf Impact Works</motion.h2>
@@ -151,7 +151,7 @@ function DrawProcessSection() {
           {steps.map(({ step, title, desc }, i) => (
             <AnimatedSection key={step}>
               <motion.div variants={fadeUp} style={{ position: 'relative' }}>
-                <div style={{ fontSize: '3rem', fontWeight: 900, fontFamily: 'Outfit', color: 'rgba(99,102,241,0.12)', marginBottom: '0.5rem', lineHeight: 1 }}>{step}</div>
+                <div style={{ fontSize: '3rem', fontWeight: 900, fontFamily: 'Inter, system-ui, sans-serif', color: 'rgba(99,102,241,0.12)', marginBottom: '0.5rem', lineHeight: 1 }}>{step}</div>
                 <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, #6366f1, transparent)', margin: '0 0 1rem 0', display: i < steps.length - 1 ? 'block' : 'none' }} />
                 <h3 style={{ fontWeight: 700, marginBottom: '0.75rem', fontSize: '1.05rem' }}>{title}</h3>
                 <p style={{ color: '#64748b', fontSize: '0.875rem', lineHeight: 1.65 }}>{desc}</p>
@@ -169,7 +169,7 @@ function DrawProcessSection() {
               { label: '3 Match Winners', pct: '25%', color: '#fbbf24', desc: 'Split equally' },
             ].map(({ label, pct, color, desc }) => (
               <div key={label}>
-                <div style={{ fontSize: '2.5rem', fontWeight: 900, color, fontFamily: 'Outfit', marginBottom: '0.25rem' }}>{pct}</div>
+                <div style={{ fontSize: '2.5rem', fontWeight: 900, color, fontFamily: 'Inter, system-ui, sans-serif', marginBottom: '0.25rem' }}>{pct}</div>
                 <div style={{ fontWeight: 600, marginBottom: '0.25rem' }}>{label}</div>
                 <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{desc}</div>
               </div>
@@ -192,7 +192,7 @@ const charities = [
 function CharityShowcase() {
   return (
     <section id="charities" style={{ padding: '6rem 1.5rem' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <AnimatedSection style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
           <motion.div variants={fadeUp}>
             <p style={{ color: '#34d399', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Charity Impact</p>
@@ -225,7 +225,7 @@ function CharityShowcase() {
                   <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>{emoji}</div>
                   <div style={{ fontWeight: 600, fontSize: '0.85rem', marginBottom: '0.25rem' }}>{name}</div>
                   <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.75rem' }}>{category}</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color, fontFamily: 'Outfit' }}>{raised}</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color, fontFamily: 'Inter, system-ui, sans-serif' }}>{raised}</div>
                   <div style={{ fontSize: '0.7rem', color: '#64748b' }}>raised</div>
                 </motion.div>
               </AnimatedSection>
@@ -253,7 +253,7 @@ const testimonials = [
 function TestimonialsSection() {
   return (
     <section style={{ padding: '6rem 1.5rem', background: 'var(--bg-surface)' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <AnimatedSection style={{ textAlign: 'center', marginBottom: '4rem' }}>
           <motion.h2 variants={fadeUp} style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 800 }}>What Players Say</motion.h2>
         </AnimatedSection>
@@ -311,7 +311,7 @@ function PricingSection() {
                 <h3 style={{ fontWeight: 700, marginBottom: '0.25rem' }}>{name}</h3>
                 <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '1.25rem' }}>{desc}</p>
                 <div style={{ marginBottom: '1.5rem' }}>
-                  <span style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: 'Outfit', color: popular ? '#818cf8' : '#f8fafc' }}>{price}</span>
+                  <span style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: 'Inter, system-ui, sans-serif', color: popular ? '#818cf8' : '#f8fafc' }}>{price}</span>
                   <span style={{ color: '#64748b', fontSize: '0.875rem' }}>{period}</span>
                 </div>
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem', marginBottom: '1.75rem' }}>

@@ -19,7 +19,7 @@ function StatCard({ icon: Icon, label, value, sub, color, to }) {
         </div>
         {to && <ChevronRight size={16} color="#64748b" />}
       </div>
-      <div style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Outfit' }}>{value}</div>
+      <div style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Inter, system-ui, sans-serif' }}>{value}</div>
       <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{label}</div>
       {sub && <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{sub}</div>}
     </motion.div>
@@ -80,7 +80,7 @@ export default function DashboardPage() {
       <motion.div variants={stagger} initial="hidden" animate="visible"
         style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         <StatCard icon={CreditCard} label="Subscription" value={isActive ? 'Active' : 'Inactive'} sub={isActive ? `Renews ${renewalDate}` : 'Subscribe now'} color={isActive ? '#34d399' : '#f87171'} to="/dashboard/subscription" />
-        <StatCard icon={Trophy} label="Scores Logged" value={scores.length} sub="Max 5 stored" color="#818cf8" to="/dashboard/scores" />
+        <StatCard icon={Trophy} label="Scores Logged" value={scores.length} sub="Max 5 stored" color="#22C55E" to="/dashboard/scores" />
         <StatCard icon={Award} label="Total Winnings" value={`$${totalWon.toFixed(2)}`} sub={`${winnings.length} draw entries`} color="#fbbf24" to="/dashboard/rewards" />
         <StatCard icon={Heart} label="Charity Donation" value={`${user?.donation_pct || 10}%`} sub="Of your winnings" color="#f87171" to="/dashboard/charity" />
       </motion.div>
@@ -100,7 +100,7 @@ export default function DashboardPage() {
               {scores.slice(0, 5).map((score) => (
                 <div key={score.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.625rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                    <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.875rem', color: '#818cf8' }}>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(34,197,94,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.875rem', color: '#22C55E' }}>
                       {score.score}
                     </div>
                     <span style={{ fontSize: '0.8rem', color: '#64748b' }}>{new Date(score.score_date).toLocaleDateString()}</span>

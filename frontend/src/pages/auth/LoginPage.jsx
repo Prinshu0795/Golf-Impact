@@ -37,7 +37,7 @@ export default function LoginPage() {
         style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', boxShadow: '0 0 30px rgba(99,102,241,0.3)' }}>
+          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', boxShadow: '0 0 30px rgba(34,197,94,0.3)' }}>
             <Target size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Welcome Back</h1>
@@ -71,7 +71,7 @@ export default function LoginPage() {
             </div>
             {errors.password && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.375rem' }}>{errors.password.message}</p>}
             <div style={{ textAlign: 'right', marginTop: '0.5rem' }}>
-              <Link to="/forgot-password" style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 600, textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#34d399'} onMouseLeave={(e) => e.target.style.color = '#10b981'}>
+              <Link to="/forgot-password" style={{ fontSize: '0.8rem', color: '#22C55E', fontWeight: 600, textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#15803D'} onMouseLeave={(e) => e.target.style.color = '#22C55E'}>
                 Forgot Password?
               </Link>
             </div>
@@ -84,7 +84,7 @@ export default function LoginPage() {
           <div style={{ textAlign: 'center' }}>
             <p style={{ color: '#64748b', fontSize: '0.875rem' }}>
               Don't have an account?{' '}
-              <Link to="/signup" style={{ color: '#818cf8', fontWeight: 600 }}>Sign up free</Link>
+              <Link to="/signup" style={{ color: '#22C55E', fontWeight: 600 }}>Sign up free</Link>
             </p>
           </div>
         </form>

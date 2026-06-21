@@ -114,10 +114,10 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
         <div style={{
           position: 'absolute', top: '-14px', left: '50%', transform: 'translateX(-50%)',
           padding: '0.3rem 1.25rem', borderRadius: '9999px',
-          background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+          background: 'linear-gradient(135deg, #22C55E, #15803D)',
           fontSize: '0.72rem', fontWeight: 800, color: 'white',
           letterSpacing: '0.08em', textTransform: 'uppercase',
-          boxShadow: '0 4px 20px rgba(99,102,241,0.4)',
+          boxShadow: '0 4px 20px rgba(34,197,94,0.4)',
         }}>
           ⭐ Best Value
         </div>
@@ -147,7 +147,7 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
 
       <div style={{ marginBottom: '1.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.25rem' }}>
-          <span style={{ fontSize: '2.5rem', fontWeight: 900, color, fontFamily: 'Outfit' }}>
+          <span style={{ fontSize: '2.5rem', fontWeight: 900, color, fontFamily: 'Inter, system-ui, sans-serif' }}>
             {price}
           </span>
           <span style={{ color: '#64748b', fontSize: '0.875rem' }}>/{period}</span>
@@ -172,13 +172,13 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
           background: isCurrentPlan
             ? 'rgba(52,211,153,0.1)'
             : popular
-              ? 'linear-gradient(135deg, #6366f1, #8b5cf6)'
+              ? 'linear-gradient(135deg, #22C55E, #15803D)'
               : 'rgba(255,255,255,0.06)',
           color: isCurrentPlan ? '#34d399' : 'white',
           border: isCurrentPlan ? '1px solid rgba(52,211,153,0.3)' : '1px solid transparent',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
           transition: 'all 0.2s',
-          boxShadow: !isCurrentPlan && popular ? '0 8px 24px rgba(99,102,241,0.35)' : 'none',
+          boxShadow: !isCurrentPlan && popular ? '0 8px 24px rgba(34,197,94,0.35)' : 'none',
           opacity: loading ? 0.7 : 1,
         }}
       >

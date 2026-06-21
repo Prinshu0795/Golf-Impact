@@ -58,8 +58,8 @@ export default function SupportPage() {
           <div style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: '72px', height: '72px', borderRadius: '20px', marginBottom: '1.5rem',
-            background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-            boxShadow: '0 8px 32px rgba(99,102,241,0.35)',
+            background: 'linear-gradient(135deg, #22C55E, #15803D)',
+            boxShadow: '0 8px 32px rgba(34,197,94,0.35)',
           }}>
             <HeadphonesIcon size={36} color="white" />
           </div>
@@ -122,18 +122,15 @@ export default function SupportPage() {
             <a
               id="email-support-btn"
               href={`mailto:${SUPPORT_EMAIL}?subject=Golf Impact Support Request`}
+              className="btn-primary"
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.75rem 1.75rem', borderRadius: '12px',
-                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
-                color: 'white', fontWeight: 700, fontSize: '0.9rem',
-                textDecoration: 'none', transition: 'all 0.2s',
-                boxShadow: '0 4px 16px rgba(99,102,241,0.35)',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                width: '100%', padding: '1rem', borderRadius: '12px',
+                color: 'white', fontWeight: 700, fontSize: '0.95rem',
+                textDecoration: 'none',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
-              <Mail size={16} /> Send Email
+              <Mail size={18} /> Send Email
             </a>
           </motion.div>
 
@@ -167,18 +164,15 @@ export default function SupportPage() {
             <a
               id="call-support-btn"
               href={`tel:${SUPPORT_PHONE}`}
+              className="btn-secondary"
               style={{
-                display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                padding: '0.75rem 1.75rem', borderRadius: '12px',
-                background: 'linear-gradient(135deg, #16a34a, #15803D)',
-                color: 'white', fontWeight: 700, fontSize: '0.9rem',
-                textDecoration: 'none', transition: 'all 0.2s',
-                boxShadow: '0 4px 16px rgba(22,163,74,0.35)',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
+                width: '100%', padding: '1rem', borderRadius: '12px',
+                fontWeight: 700, fontSize: '0.95rem',
+                textDecoration: 'none',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-              onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
             >
-              <Phone size={16} /> Call Now
+              <Phone size={18} /> Call Now
             </a>
           </motion.div>
         </motion.div>

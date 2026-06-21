@@ -48,18 +48,18 @@ export default function Navbar() {
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
     }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="premium-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         {/* Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+            background: 'linear-gradient(135deg, #22C55E, #15803D)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 20px rgba(99,102,241,0.4)',
+            boxShadow: '0 0 20px rgba(34,197,94,0.3)',
           }}>
             <Target size={20} color="white" />
           </div>
-          <span style={{ fontFamily: 'Outfit, sans-serif', fontWeight: 800, fontSize: '1.25rem', background: 'linear-gradient(135deg, #6366f1, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+          <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>
             Golf Impact
           </span>
         </Link>
@@ -119,20 +119,23 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             style={{
-              position: 'absolute', top: '72px', left: 0, right: 0,
+              position: 'fixed', top: '72px', bottom: 0, right: 0, width: '100%', maxWidth: '320px',
               background: 'var(--bg-surface)',
               backdropFilter: 'blur(20px)',
-              borderBottom: '1px solid var(--bg-border-light)',
-              padding: '1.5rem',
-              display: 'flex', flexDirection: 'column', gap: '1rem',
+              borderLeft: '1px solid var(--bg-border-light)',
+              padding: '2rem 1.5rem',
+              display: 'flex', flexDirection: 'column', gap: '1.5rem',
+              boxShadow: '-10px 0 30px rgba(0,0,0,0.5)',
+              zIndex: 99
             }}
           >
             {navLinks.map((link) => (
