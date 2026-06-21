@@ -87,13 +87,6 @@ export default function LoginPage() {
               <Link to="/signup" style={{ color: '#818cf8', fontWeight: 600 }}>Sign up free</Link>
             </p>
           </div>
-
-          {/* Demo credentials */}
-          <div style={{ padding: '0.875rem', background: 'rgba(99,102,241,0.06)', borderRadius: '10px', border: '1px solid rgba(99,102,241,0.15)' }}>
-            <p style={{ fontSize: '0.75rem', fontWeight: 600, color: '#818cf8', marginBottom: '0.375rem' }}>🎯 Test Credentials</p>
-            <p style={{ fontSize: '0.75rem', color: '#64748b' }}>User: user@golfimpact.com / User@123</p>
-            <p style={{ fontSize: '0.75rem', color: '#64748b' }}>Admin: admin@golfimpact.com / Admin@123</p>
-          </div>
         </form>
       </motion.div>
     </div>
