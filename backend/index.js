@@ -22,15 +22,25 @@ const app = express();
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:5173',
   'http://localhost:3000',
+  'http://localhost:5173',
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin) || origin.startsWith('http://localhost:')) {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS: Origin ${origin} not allowed`));
+    // Allow requests with no origin (mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+    // Allow localhost
+    if (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')) {
+      return callback(null, true);
     }
+    // Allow exact matches from allowedOrigins list
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    // Allow ALL Vercel preview deployments for this project
+    // Matches: golf-impact-*.vercel.app and golf-impact-chi.vercel.app etc.
+    if (/^https:\/\/golf-impact[a-z0-9-]*\.vercel\.app$/.test(origin)) {
+      return callback(null, true);
+    }
+    callback(new Error(`CORS: Origin ${origin} not allowed`));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
