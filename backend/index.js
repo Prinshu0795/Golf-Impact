@@ -46,7 +46,11 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
 // ─── STATIC FILES ────────────────────────────────────────────────────────
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+const uploadsPath = process.env.NODE_ENV === 'production'
+  ? '/tmp/uploads'
+  : path.join(__dirname, 'uploads');
+app.use('/uploads', express.static(uploadsPath));
+
 
 // ─── HEALTH CHECK ────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {

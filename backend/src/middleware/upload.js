@@ -2,18 +2,30 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Ensure uploads directory exists
-const uploadDir = process.env.UPLOAD_PATH || './uploads';
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+// On Vercel serverless, only /tmp is writable. Use /tmp/uploads in production.
+const uploadDir = process.env.NODE_ENV === 'production'
+  ? '/tmp/uploads'
+  : (process.env.UPLOAD_PATH || './uploads');
+
+// Ensure uploads directory exists (safe: recursive creates intermediate dirs)
+try {
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+} catch (err) {
+  console.warn(`Warning: Could not create upload directory "${uploadDir}":`, err.message);
 }
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const subdir = req.uploadSubdir || '';
     const dir = path.join(uploadDir, subdir);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    try {
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+    } catch (err) {
+      return cb(new Error(`Cannot create upload directory: ${err.message}`));
     }
     cb(null, dir);
   },
