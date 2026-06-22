@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { adminService } from '../../services';
 import { Users, CreditCard, Trophy, AlertCircle, BarChart3, TrendingUp } from 'lucide-react';
@@ -55,11 +56,11 @@ export default function AdminDashboard() {
             { href: '/admin/users', label: '👥 Manage Users', color: '#34d399' },
             { href: '/admin/charities', label: '💚 Manage Charities', color: '#f87171' },
           ].map(({ href, label, color }) => (
-            <a key={href} href={href} style={{ padding: '0.875rem 1rem', borderRadius: '10px', background: `${color}10`, border: `1px solid ${color}25`, color, fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none', display: 'block', textAlign: 'center', transition: 'all 0.2s' }}
+            <Link key={href} to={href} style={{ padding: '0.875rem 1rem', borderRadius: '10px', background: `${color}10`, border: `1px solid ${color}25`, color, fontWeight: 600, fontSize: '0.875rem', textDecoration: 'none', display: 'block', textAlign: 'center', transition: 'all 0.2s' }}
               onMouseEnter={(e) => e.currentTarget.style.background = `${color}20`}
               onMouseLeave={(e) => e.currentTarget.style.background = `${color}10`}>
               {label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

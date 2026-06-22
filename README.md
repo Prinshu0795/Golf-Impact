@@ -1,8 +1,41 @@
-# ⛳ Golf Impact-- https://golf-impact-idxt.vercel.app/
+# ⛳ Golf Impact
 
 > Track Performance • Win Rewards • Support Charity
 
 A premium full-stack web application where golfers track their scores, participate in monthly prize draws, and donate to charities they love.
+
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- Supabase account
+- Stripe account
+
+### 1. Clone & Setup
+
+```bash
+# Backend
+cd backend
+cp .env.example .env
+# Fill in your credentials in .env
+npm install
+npm run dev
+
+# Frontend (new terminal)
+cd frontend
+cp .env.example .env
+# Fill in your credentials in .env
+npm install
+npm run dev
+```
+
+
+
+
+
 
 ## 🛠️ Tech Stack
 
@@ -23,12 +56,34 @@ A premium full-stack web application where golfers track their scores, participa
 
 ---
 
+## 📡 API Documentation
+
+### Base URL
+```
+https://golf-impact-idxt.vercel.app/
+
+```
 
 
 
 
 
+## 🗄️ Database Schema
 
+```
+users               - User accounts (role: user|admin)
+scores              - Golf scores (max 5 per user, range 1-45)
+subscriptions       - Stripe subscriptions
+draws               - Monthly draw records
+draw_entries        - User entries per draw
+charities           - Charity organizations
+charity_events      - Events per charity
+charity_donations   - Donation records
+payments            - Payment history
+winner_verifications - Winner proof & review
+```
+
+---
 
 ## ✨ Features
 
@@ -69,6 +124,13 @@ A premium full-stack web application where golfers track their scores, participa
 - Draw configuration & publishing
 - Charity CRUD
 - Winner verification workflow
+
+---
+
+
+
+
+
 
 
 ## 📁 Project Structure
