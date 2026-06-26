@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { createMessage, getMessages, resolveMessage } = require('../controllers/support.controller');
+const { createMessage, getMessages, updateStatus, deleteMessage } = require('../controllers/support.controller');
 const { authenticate } = require('../middleware/auth');
 const { adminAuth } = require('../middleware/adminAuth');
 
@@ -8,6 +8,7 @@ router.post('/message', createMessage);
 
 // Admin only
 router.get('/messages', adminAuth, getMessages);
-router.put('/messages/:id/resolve', adminAuth, resolveMessage);
+router.put('/messages/:id/status', adminAuth, updateStatus);
+router.delete('/messages/:id', adminAuth, deleteMessage);
 
 module.exports = router;

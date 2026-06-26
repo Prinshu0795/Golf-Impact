@@ -46,22 +46,44 @@ const getMessages = async (req, res, next) => {
   }
 };
 
-// PUT /api/support/messages/:id/resolve — admin only
-const resolveMessage = async (req, res, next) => {
+// PUT /api/support/messages/:id/status — admin only
+const updateStatus = async (req, res, next) => {
   try {
     const { id } = req.params;
+    const { status } = req.body;
 
     const { error } = await supabase
       .from('support_messages')
-      .update({ status: 'resolved', resolved_at: new Date().toISOString() })
+      .update({ 
+        status: status, 
+        resolved_at: status === 'resolved' ? new Date().toISOString() : null 
+      })
       .eq('id', id);
 
     if (error) throw error;
 
-    return res.json({ success: true, message: 'Message marked as resolved.' });
+    return res.json({ success: true, message: 'Message status updated.' });
   } catch (err) {
     next(err);
   }
 };
 
-module.exports = { createMessage, getMessages, resolveMessage };
+// DELETE /api/support/messages/:id — admin only
+const deleteMessage = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const { error } = await supabase
+      .from('support_messages')
+      .delete()
+      .eq('id', id);
+
+    if (error) throw error;
+
+    return res.json({ success: true, message: 'Message deleted successfully.' });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { createMessage, getMessages, updateStatus, deleteMessage };

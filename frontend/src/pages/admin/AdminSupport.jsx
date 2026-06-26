@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, CheckCircle, Clock, User, Mail, RefreshCw } from 'lucide-react';
+import { MessageSquare, CheckCircle, Clock, User, Mail, RefreshCw, Trash2 } from 'lucide-react';
 import api from '../../services/api';
 import Spinner from '../../components/ui/Spinner';
 
@@ -14,7 +14,7 @@ export default function AdminSupport() {
     setLoading(true);
     try {
       const res = await api.get('/support/messages');
-      setMessages(res.data?.messages || []);
+      setMessages(res.messages || []);
     } catch {
       setMessages([]);
     } finally {
@@ -24,11 +24,22 @@ export default function AdminSupport() {
 
   useEffect(() => { load(); }, []);
 
-  const markResolved = async (id) => {
+  const toggleStatus = async (id, currentStatus) => {
+    const newStatus = currentStatus === 'resolved' ? 'open' : 'resolved';
     setUpdatingId(id);
     try {
-      await api.put(`/support/messages/${id}/resolve`);
-      setMessages((prev) => prev.map((m) => m.id === id ? { ...m, status: 'resolved' } : m));
+      await api.put(`/support/messages/${id}/status`, { status: newStatus });
+      setMessages((prev) => prev.map((m) => m.id === id ? { ...m, status: newStatus } : m));
+    } catch {}
+    setUpdatingId(null);
+  };
+
+  const deleteMessage = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this support message? This action cannot be undone.")) return;
+    setUpdatingId(id);
+    try {
+      await api.delete(`/support/messages/${id}`);
+      setMessages((prev) => prev.filter((m) => m.id !== id));
     } catch {}
     setUpdatingId(null);
   };
@@ -44,7 +55,7 @@ export default function AdminSupport() {
         <div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Support Inbox</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
-            {openCount} open {openCount === 1 ? 'message' : 'messages'}
+            {openCount} pending {openCount === 1 ? 'message' : 'messages'}
           </p>
         </div>
         <button onClick={load} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', color: 'var(--color-primary-light)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 600 }}>
@@ -105,7 +116,7 @@ export default function AdminSupport() {
                         border: `1px solid ${isResolved ? 'rgba(52,211,153,0.25)' : 'rgba(251,191,36,0.25)'}`,
                         textTransform: 'uppercase', letterSpacing: '0.05em',
                       }}>
-                        {isResolved ? 'Resolved' : 'Open'}
+                        {isResolved ? 'Resolved' : 'Pending'}
                       </span>
                     </div>
 
@@ -119,19 +130,34 @@ export default function AdminSupport() {
                     </div>
                   </div>
 
-                  {!isResolved && (
-                    <button onClick={() => markResolved(msg.id)} disabled={updatingId === msg.id}
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginTop: '1rem', flexWrap: 'wrap', justifyContent: 'space-between', width: '100%' }}>
+                    <label style={{
+                      display: 'flex', alignItems: 'center', gap: '0.5rem',
+                      cursor: updatingId === msg.id ? 'not-allowed' : 'pointer',
+                      fontSize: '0.875rem', color: 'var(--text-secondary)', fontWeight: 500,
+                      opacity: updatingId === msg.id ? 0.6 : 1,
+                    }}>
+                      <input 
+                        type="checkbox" 
+                        checked={isResolved}
+                        onChange={() => toggleStatus(msg.id, msg.status)}
+                        disabled={updatingId === msg.id}
+                        style={{ width: '16px', height: '16px', accentColor: '#10b981', cursor: 'inherit' }}
+                      />
+                      Mark as Resolved
+                    </label>
+
+                    <button onClick={() => deleteMessage(msg.id)} disabled={updatingId === msg.id}
                       style={{
-                        display: 'flex', alignItems: 'center', gap: '0.5rem',
-                        padding: '0.5rem 1rem', borderRadius: '8px', cursor: 'pointer',
-                        background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.25)',
-                        color: '#34d399', fontWeight: 600, fontSize: '0.8rem',
+                        display: 'flex', alignItems: 'center', gap: '0.375rem',
+                        padding: '0.4rem 0.85rem', borderRadius: '8px', cursor: 'pointer',
+                        background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.2)',
+                        color: '#ef4444', fontWeight: 600, fontSize: '0.85rem',
                         opacity: updatingId === msg.id ? 0.6 : 1,
                       }}>
-                      <CheckCircle size={14} />
-                      {updatingId === msg.id ? 'Marking…' : 'Mark Resolved'}
+                      <Trash2 size={15} /> Delete
                     </button>
-                  )}
+                  </div>
                 </div>
               </motion.div>
             );
