@@ -38,7 +38,7 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
               <a href={`mailto:${SUPPORT_EMAIL}`}
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)', fontSize: '0.8rem', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={(e) => e.currentTarget.style.color = '#818cf8'}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-light)'}
                 onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>
                 <Mail size={14} /> {SUPPORT_EMAIL}
               </a>

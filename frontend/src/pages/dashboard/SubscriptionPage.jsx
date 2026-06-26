@@ -19,7 +19,7 @@ const PLANS = [
     price: '₹799',
     priceNum: 799,
     period: 'month',
-    color: '#818cf8',
+    color: 'var(--color-primary-light)',
     features: [
       'All monthly draw entries',
       'Full score tracking (up to 5)',
@@ -97,7 +97,7 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
         borderRadius: '20px',
         border: popular
           ? `1px solid ${hovered ? 'rgba(167,139,250,0.6)' : 'rgba(167,139,250,0.3)'}`
-          : `1px solid ${hovered ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.06)'}`,
+          : `1px solid ${hovered ? 'var(--color-primary-light)' : 'var(--bg-border-light)'}`,
         background: popular
           ? `linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.05) 100%)`
           : 'var(--bg-card)',
@@ -150,14 +150,14 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
           <span style={{ fontSize: '2.5rem', fontWeight: 900, color, fontFamily: 'Inter, system-ui, sans-serif' }}>
             {price}
           </span>
-          <span style={{ color: '#64748b', fontSize: '0.875rem' }}>/{period}</span>
+          <span style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>/{period}</span>
         </div>
       </div>
 
       <ul style={{ marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
         {features.map((f) => (
-          <li key={f} style={{ display: 'flex', gap: '0.625rem', fontSize: '0.875rem', color: '#94a3b8', alignItems: 'flex-start' }}>
-            <Check size={15} color="#34d399" style={{ flexShrink: 0, marginTop: '2px' }} /> {f}
+          <li key={f} style={{ display: 'flex', gap: '0.625rem', fontSize: '0.875rem', color: 'var(--text-secondary)', alignItems: 'flex-start' }}>
+            <Check size={15} color="var(--color-secondary-light)" style={{ flexShrink: 0, marginTop: '2px' }} /> {f}
           </li>
         ))}
       </ul>
@@ -173,9 +173,9 @@ function PlanCard({ plan, onSelect, loading, isCurrentPlan }) {
             ? 'rgba(52,211,153,0.1)'
             : popular
               ? 'linear-gradient(135deg, #22C55E, #15803D)'
-              : 'rgba(255,255,255,0.06)',
-          color: isCurrentPlan ? '#34d399' : 'white',
-          border: isCurrentPlan ? '1px solid rgba(52,211,153,0.3)' : '1px solid transparent',
+              : 'var(--bg-surface)',
+          color: isCurrentPlan ? 'var(--color-secondary-light)' : popular ? 'white' : 'var(--text-primary)',
+          border: isCurrentPlan ? '1px solid rgba(52,211,153,0.3)' : '1px solid var(--bg-border-light)',
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
           transition: 'all 0.2s',
           boxShadow: !isCurrentPlan && popular ? '0 8px 24px rgba(34,197,94,0.35)' : 'none',
@@ -319,7 +319,7 @@ export default function SubscriptionPage() {
         <h1 style={{ fontSize: '1.6rem', fontWeight: 900, marginBottom: '0.375rem', letterSpacing: '-0.02em' }}>
           Subscription
         </h1>
-        <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
+        <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
           Manage your Golf Impact membership and payment history
         </p>
       </div>
@@ -335,7 +335,7 @@ export default function SubscriptionPage() {
               ? 'linear-gradient(135deg, rgba(16,185,129,0.06) 0%, rgba(99,102,241,0.04) 100%)'
               : 'var(--bg-card)',
             borderRadius: '20px',
-            border: `1px solid ${isActive ? 'rgba(16,185,129,0.2)' : 'rgba(255,255,255,0.06)'}`,
+            border: `1px solid ${isActive ? 'rgba(16,185,129,0.2)' : 'var(--bg-border-light)'}`,
             marginBottom: '2.5rem',
           }}
         >
@@ -348,7 +348,7 @@ export default function SubscriptionPage() {
                   border: `1px solid ${isActive ? 'rgba(16,185,129,0.2)' : 'rgba(100,116,139,0.15)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
-                  <CreditCard size={20} color={isActive ? '#34d399' : '#64748b'} />
+                  <CreditCard size={20} color={isActive ? '#34d399' : 'var(--text-muted)'} />
                 </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
@@ -362,19 +362,19 @@ export default function SubscriptionPage() {
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
                 {expiryDate && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem' }}>
-                    <Calendar size={14} color="#64748b" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                    <Calendar size={14} color="var(--text-muted)" />
                     <span>
                       {subscription.cancel_at_period_end ? 'Access until' : isActive ? 'Renews' : 'Expired'}:
-                      {' '}<strong style={{ color: '#e2e8f0' }}>{formatDate(expiryDate)}</strong>
+                      {' '}<strong style={{ color: 'var(--text-primary)' }}>{formatDate(expiryDate)}</strong>
                     </span>
                   </div>
                 )}
                 {subscription.amount && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8', fontSize: '0.85rem' }}>
-                    <IndianRupee size={14} color="#64748b" />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                    <IndianRupee size={14} color="var(--text-muted)" />
                     <span>
-                      Amount paid: <strong style={{ color: '#e2e8f0' }}>₹{parseFloat(subscription.amount).toFixed(0)}</strong>
+                      Amount paid: <strong style={{ color: 'var(--text-primary)' }}>₹{parseFloat(subscription.amount).toFixed(0)}</strong>
                     </span>
                   </div>
                 )}
@@ -408,12 +408,12 @@ export default function SubscriptionPage() {
       <div style={{
         display: 'flex', alignItems: 'center', gap: '0.625rem',
         padding: '0.75rem 1.25rem', borderRadius: '12px',
-        background: 'rgba(99,102,241,0.06)', border: '1px solid rgba(99,102,241,0.15)',
+        background: 'var(--bg-border-light)', border: '1px solid var(--bg-border-light)',
         marginBottom: '2rem', width: 'fit-content',
       }}>
-        <Shield size={16} color="#818cf8" />
-        <span style={{ fontSize: '0.82rem', color: '#94a3b8' }}>
-          Secured by <strong style={{ color: '#818cf8' }}>Razorpay</strong> — 256-bit SSL encryption
+        <Shield size={16} color="var(--color-primary-light)" />
+        <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+          Secured by <strong style={{ color: 'var(--color-primary-light)' }}>Razorpay</strong> — 256-bit SSL encryption
         </span>
       </div>
 
@@ -476,14 +476,14 @@ export default function SubscriptionPage() {
           <div style={{
             padding: '3rem 2rem', textAlign: 'center',
             background: 'var(--bg-card)', borderRadius: '16px',
-            border: '1px solid rgba(255,255,255,0.06)',
+            border: '1px solid var(--bg-border-light)',
           }}>
-            <Clock size={32} color="#334155" style={{ marginBottom: '0.75rem' }} />
-            <p style={{ color: '#64748b', fontSize: '0.9rem' }}>No transactions yet.</p>
+            <Clock size={32} color="var(--text-muted)" style={{ marginBottom: '0.75rem' }} />
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>No transactions yet.</p>
           </div>
         ) : (
           <div style={{
-            background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)',
+            background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)',
             borderRadius: '16px', overflow: 'hidden',
           }}>
             <table className="data-table" style={{ width: '100%' }}>
@@ -500,10 +500,10 @@ export default function SubscriptionPage() {
                 {payments.map((p) => (
                   <tr key={p.id}>
                     <td style={{ fontSize: '0.875rem' }}>{p.description || p.type}</td>
-                    <td style={{ color: '#34d399', fontWeight: 700 }}>
+                    <td style={{ color: 'var(--color-secondary-light)', fontWeight: 700 }}>
                       ₹{parseFloat(p.amount || 0).toFixed(0)}
                     </td>
-                    <td style={{ fontSize: '0.8rem', color: '#64748b', textTransform: 'capitalize' }}>
+                    <td style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'capitalize' }}>
                       {p.provider || 'razorpay'}
                     </td>
                     <td>
@@ -515,7 +515,7 @@ export default function SubscriptionPage() {
                         {p.status}
                       </span>
                     </td>
-                    <td style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                    <td style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                       {new Date(p.created_at).toLocaleDateString('en-IN')}
                     </td>
                   </tr>
@@ -548,7 +548,7 @@ export default function SubscriptionPage() {
               onClick={(e) => e.stopPropagation()}
               style={{
                 background: 'var(--bg-card)', borderRadius: '20px',
-                border: '1px solid rgba(255,255,255,0.1)',
+                border: '1px solid var(--bg-border-light)',
                 padding: '2rem', maxWidth: '420px', width: '100%',
                 boxShadow: '0 32px 80px rgba(0,0,0,0.5)',
               }}
@@ -563,7 +563,7 @@ export default function SubscriptionPage() {
                 </div>
                 <button
                   onClick={() => setShowCancelModal(false)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748b', padding: '4px' }}
+                  style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '4px' }}
                 >
                   <X size={18} />
                 </button>
@@ -572,8 +572,8 @@ export default function SubscriptionPage() {
               <h3 style={{ fontWeight: 800, marginBottom: '0.625rem', fontSize: '1.1rem' }}>
                 Cancel Subscription?
               </h3>
-              <p style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '1.75rem' }}>
-                You'll retain full access until <strong style={{ color: '#e2e8f0' }}>{formatDate(expiryDate)}</strong>.
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', lineHeight: 1.6, marginBottom: '1.75rem' }}>
+                You'll retain full access until <strong style={{ color: 'var(--text-primary)' }}>{formatDate(expiryDate)}</strong>.
                 After that, your subscription will not renew and you'll lose access to draws and premium features.
               </p>
 
@@ -583,8 +583,8 @@ export default function SubscriptionPage() {
                   onClick={() => setShowCancelModal(false)}
                   style={{
                     flex: 1, padding: '0.75rem', borderRadius: '10px',
-                    background: 'rgba(255,255,255,0.06)', color: '#e2e8f0',
-                    border: '1px solid rgba(255,255,255,0.1)', cursor: 'pointer', fontWeight: 600,
+                    background: 'var(--bg-surface)', color: 'var(--text-primary)',
+                    border: '1px solid var(--bg-border-light)', cursor: 'pointer', fontWeight: 600,
                   }}
                 >
                   Keep Subscription

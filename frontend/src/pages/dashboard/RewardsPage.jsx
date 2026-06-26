@@ -50,7 +50,7 @@ export default function RewardsPage() {
     <div>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>My Rewards</h1>
-        <p style={{ color: '#64748b' }}>Track your draw winnings and submit verification</p>
+        <p style={{ color: 'var(--text-muted)' }}>Track your draw winnings and submit verification</p>
       </div>
 
       {/* Summary */}
@@ -58,20 +58,20 @@ export default function RewardsPage() {
         {[
           { label: 'Total Earned', value: `$${totalEarned.toFixed(2)}`, color: '#34d399' },
           { label: 'Pending', value: `$${totalPending.toFixed(2)}`, color: '#fbbf24' },
-          { label: 'Total Winnings', value: winnings.length, color: '#818cf8' },
+          { label: 'Total Winnings', value: winnings.length, color: 'var(--color-primary-light)' },
         ].map(({ label, value, color }) => (
-          <div key={label} style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: '14px', border: '1px solid rgba(255,255,255,0.06)', textAlign: 'center' }}>
+          <div key={label} style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: '14px', border: '1px solid var(--bg-border-light)', textAlign: 'center' }}>
             <div style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Outfit' }}>{value}</div>
-            <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>{label}</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>{label}</div>
           </div>
         ))}
       </div>
 
       {winnings.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '4rem 2rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ textAlign: 'center', padding: '4rem 2rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)' }}>
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🏆</div>
           <h3 style={{ fontWeight: 700, marginBottom: '0.5rem' }}>No winnings yet</h3>
-          <p style={{ color: '#64748b' }}>Keep adding scores to participate in draws. Your numbers are auto-entered!</p>
+          <p style={{ color: 'var(--text-muted)' }}>Keep adding scores to participate in draws. Your numbers are auto-entered!</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -80,7 +80,7 @@ export default function RewardsPage() {
             const Icon = cfg.icon;
             return (
               <motion.div key={w.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
-                style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)' }}>
                 <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem', flexWrap: 'wrap' }}>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
@@ -91,7 +91,7 @@ export default function RewardsPage() {
                         <Icon size={12} /> {cfg.label}
                       </span>
                     </div>
-                    <p style={{ fontSize: '0.85rem', color: '#64748b' }}>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                       Draw: {w.draws?.draw_type?.toUpperCase()} • {w.draws?.draw_date ? new Date(w.draws.draw_date).toLocaleDateString() : '—'}
                     </p>
                     {w.admin_notes && <p style={{ fontSize: '0.8rem', color: '#f87171', marginTop: '0.375rem' }}>Note: {w.admin_notes}</p>}
@@ -107,7 +107,7 @@ export default function RewardsPage() {
                     </div>
                   )}
                   {w.proof_url && w.status === 'pending' && (
-                    <span style={{ fontSize: '0.8rem', color: '#64748b', background: 'rgba(255,255,255,0.04)', padding: '0.375rem 0.75rem', borderRadius: '8px' }}>Proof submitted ✓</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', background: 'var(--bg-border-light)', padding: '0.375rem 0.75rem', borderRadius: '8px' }}>Proof submitted ✓</span>
                   )}
                 </div>
               </motion.div>

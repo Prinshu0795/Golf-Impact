@@ -44,9 +44,9 @@ export default function Navbar() {
       height: '72px',
       display: 'flex', alignItems: 'center',
       transition: 'all 0.3s ease',
-      background: scrolled ? 'rgba(5, 5, 8, 0.95)' : 'transparent',
+      background: scrolled ? 'var(--bg-surface)' : 'transparent',
       backdropFilter: scrolled ? 'blur(20px)' : 'none',
-      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+      borderBottom: scrolled ? '1px solid var(--bg-border-light)' : 'none',
     }}>
       <div className="premium-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         {/* Logo */}
@@ -69,9 +69,9 @@ export default function Navbar() {
           {navLinks.map((link) => (
             link.href.startsWith('/') && !link.href.includes('#') ? (
               <Link key={link.href} to={link.href}
-                style={{ color: location.pathname === link.href ? '#6366f1' : linkColor, fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.2s', textDecoration: 'none' }}
+                style={{ color: location.pathname === link.href ? 'var(--color-primary)' : linkColor, fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.2s', textDecoration: 'none' }}
                 onMouseEnter={(e) => e.target.style.color = linkHover}
-                onMouseLeave={(e) => e.target.style.color = location.pathname === link.href ? '#6366f1' : linkColor}>
+                onMouseLeave={(e) => e.target.style.color = location.pathname === link.href ? 'var(--color-primary)' : linkColor}>
                 {link.label}
               </Link>
             ) : (
@@ -90,11 +90,11 @@ export default function Navbar() {
           {isAuthenticated ? (
             <>
               {isAdmin && (
-                <Link to="/admin" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#fbbf24', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
+                <Link to="/admin" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#d97706', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
                   Admin
                 </Link>
               )}
-              <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: '#818cf8', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
+              <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
                 Dashboard
               </Link>
               <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>

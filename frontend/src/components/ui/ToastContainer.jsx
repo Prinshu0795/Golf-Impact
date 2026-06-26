@@ -13,7 +13,7 @@ const colors = {
   success: { bg: 'rgba(16, 185, 129, 0.12)', border: 'rgba(16, 185, 129, 0.3)', icon: '#34d399', text: '#ecfdf5' },
   error:   { bg: 'rgba(239, 68, 68, 0.12)',  border: 'rgba(239, 68, 68, 0.3)',  icon: '#f87171', text: '#fef2f2' },
   warning: { bg: 'rgba(245, 158, 11, 0.12)', border: 'rgba(245, 158, 11, 0.3)', icon: '#fbbf24', text: '#fffbeb' },
-  info:    { bg: 'rgba(99, 102, 241, 0.12)', border: 'rgba(99, 102, 241, 0.3)', icon: '#818cf8', text: '#eef2ff' },
+  info:    { bg: 'rgba(99, 102, 241, 0.12)', border: 'rgba(99, 102, 241, 0.3)', icon: 'var(--color-primary-light)', text: '#eef2ff' },
 };
 
 export default function ToastContainer() {

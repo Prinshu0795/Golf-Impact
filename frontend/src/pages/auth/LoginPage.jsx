@@ -41,13 +41,13 @@ export default function LoginPage() {
             <Target size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Welcome Back</h1>
-          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Sign in to your Golf Impact account</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Sign in to your Golf Impact account</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {/* Email */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Email Address</label>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Email Address</label>
             <div style={{ position: 'relative' }}>
               <Mail size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email' } })}
@@ -59,13 +59,13 @@ export default function LoginPage() {
 
           {/* Password */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Password</label>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Password</label>
             <div style={{ position: 'relative' }}>
               <Lock size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input {...register('password', { required: 'Password is required' })}
                 type={showPw ? 'text' : 'password'} className="input-field" placeholder="Enter your password"
                 style={{ paddingLeft: '2.5rem', paddingRight: '3rem' }} id="login-password" />
-              <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}>
+              <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
                 {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
@@ -82,7 +82,7 @@ export default function LoginPage() {
           </button>
 
           <div style={{ textAlign: 'center' }}>
-            <p style={{ color: '#64748b', fontSize: '0.875rem' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
               Don't have an account?{' '}
               <Link to="/signup" style={{ color: '#22C55E', fontWeight: 600 }}>Sign up free</Link>
             </p>

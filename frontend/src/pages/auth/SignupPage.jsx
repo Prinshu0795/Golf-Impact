@@ -18,7 +18,7 @@ export default function SignupPage() {
   const { register, handleSubmit, watch, formState: { errors } } = useForm({ defaultValues: { donation_pct: 10 } });
 
   useEffect(() => {
-    charityService.getCharities().then((res) => setCharities(res.charities || [])).catch(() => {});
+    charityService.getCharities().then((res) => setCharities(res.charities || [])).catch(() => { });
   }, []);
 
   const onSubmit = async (data) => {
@@ -48,17 +48,17 @@ export default function SignupPage() {
             <Target size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Create Your Account</h1>
-          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Join Golf Impact and start making a difference</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Join Golf Impact and start making a difference</p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <form onSubmit={handleSubmit(onSubmit)} style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {/* Full Name */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Full Name</label>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Full Name</label>
             <div style={{ position: 'relative' }}>
               <User size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input {...register('full_name', { required: 'Full name is required', minLength: { value: 2, message: 'Name must be at least 2 characters' } })}
-                type="text" className="input-field" placeholder="John Smith" id="signup-name"
+                type="text" className="input-field" placeholder=" Enter Your Name " id="signup-name"
                 style={{ paddingLeft: '2.5rem' }} />
             </div>
             {errors.full_name && <p style={{ color: '#f87171', fontSize: '0.8rem', marginTop: '0.375rem' }}>{errors.full_name.message}</p>}
@@ -66,7 +66,7 @@ export default function SignupPage() {
 
           {/* Email */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Email Address</label>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Email Address</label>
             <div style={{ position: 'relative' }}>
               <Mail size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input {...register('email', { required: 'Email is required', pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Enter a valid email' } })}
@@ -78,13 +78,13 @@ export default function SignupPage() {
 
           {/* Password */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Password</label>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Password</label>
             <div style={{ position: 'relative' }}>
               <Lock size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
               <input {...register('password', { required: 'Password is required', minLength: { value: 8, message: 'Minimum 8 characters' } })}
                 type={showPw ? 'text' : 'password'} className="input-field" placeholder="Min 8 characters" id="signup-password"
                 style={{ paddingLeft: '2.5rem', paddingRight: '3rem' }} />
-              <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}>
+              <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
                 {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
             </div>
@@ -93,7 +93,7 @@ export default function SignupPage() {
 
           {/* Charity Selection */}
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
               <Heart size={14} style={{ display: 'inline', marginRight: '0.375rem', verticalAlign: 'middle' }} />
               Choose a Charity
             </label>
@@ -107,14 +107,14 @@ export default function SignupPage() {
 
           {/* Donation percentage */}
           <div>
-            <label style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.625rem' }}>
+            <label style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.625rem' }}>
               <span>Donation Percentage</span>
               <span style={{ color: '#34d399', fontWeight: 700 }}>{donationPct}%</span>
             </label>
             <input {...register('donation_pct', { min: 10, max: 100 })}
               type="range" min="10" max="100" step="5" id="signup-donation"
               style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer' }} />
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#64748b', marginTop: '0.25rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
               <span>10% (min)</span><span>100%</span>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function SignupPage() {
             {loading ? <><Spinner size={18} color="white" /> Creating account...</> : 'Create Account 🎯'}
           </button>
 
-          <p style={{ textAlign: 'center', color: '#64748b', fontSize: '0.875rem' }}>
+          <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.875rem' }}>
             Already have an account?{' '}
             <Link to="/login" style={{ color: '#22C55E', fontWeight: 600 }}>Sign in</Link>
           </p>

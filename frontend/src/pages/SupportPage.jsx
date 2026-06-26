@@ -116,7 +116,7 @@ export default function SupportPage() {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1.25rem', lineHeight: 1.6 }}>
               Send us an email and we'll get back to you as soon as possible.
             </p>
-            <p style={{ color: '#818cf8', fontWeight: 600, fontSize: '0.95rem', marginBottom: '1.5rem', wordBreak: 'break-all' }}>
+            <p style={{ color: 'var(--color-primary-light)', fontWeight: 600, fontSize: '0.95rem', marginBottom: '1.5rem', wordBreak: 'break-all' }}>
               {SUPPORT_EMAIL}
             </p>
             <a
@@ -222,7 +222,7 @@ export default function SupportPage() {
               <button onClick={() => setSubmitted(false)} style={{
                 marginTop: '1.5rem', padding: '0.6rem 1.5rem', borderRadius: '10px',
                 background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)',
-                color: '#818cf8', cursor: 'pointer', fontWeight: 600,
+                color: 'var(--color-primary-light)', cursor: 'pointer', fontWeight: 600,
               }}>
                 Send Another
               </button>

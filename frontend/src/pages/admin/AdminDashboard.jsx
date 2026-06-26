@@ -8,7 +8,7 @@ import Spinner from '../../components/ui/Spinner';
 function StatCard({ icon: Icon, label, value, color, trend }) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-      style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)' }}>
+      style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
         <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: `${color}18`, border: `1px solid ${color}25`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Icon size={20} color={color} />
@@ -16,7 +16,7 @@ function StatCard({ icon: Icon, label, value, color, trend }) {
         {trend && <span style={{ fontSize: '0.75rem', color: '#34d399', fontWeight: 600 }}>+{trend}%</span>}
       </div>
       <div style={{ fontSize: '2rem', fontWeight: 900, color, fontFamily: 'Outfit', marginBottom: '0.25rem' }}>{value}</div>
-      <div style={{ fontSize: '0.85rem', color: '#64748b' }}>{label}</div>
+      <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{label}</div>
     </motion.div>
   );
 }
@@ -35,7 +35,7 @@ export default function AdminDashboard() {
     <div>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Admin Dashboard</h1>
-        <p style={{ color: '#64748b' }}>Golf Impact platform overview</p>
+        <p style={{ color: 'var(--text-muted)' }}>Golf Impact platform overview</p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2.5rem' }}>
@@ -47,7 +47,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)', padding: '1.5rem' }}>
+      <div style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)', padding: '1.5rem' }}>
         <h3 style={{ fontWeight: 700, marginBottom: '1.25rem' }}>Quick Actions</h3>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem' }}>
           {[

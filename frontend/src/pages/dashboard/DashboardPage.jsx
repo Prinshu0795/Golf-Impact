@@ -21,7 +21,7 @@ function StatCard({ icon: Icon, label, value, sub, color, to }) {
       </div>
       <div style={{ fontSize: '1.75rem', fontWeight: 800, color, fontFamily: 'Inter, system-ui, sans-serif' }}>{value}</div>
       <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{label}</div>
-      {sub && <div style={{ fontSize: '0.8rem', color: '#64748b' }}>{sub}</div>}
+      {sub && <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{sub}</div>}
     </motion.div>
   );
   return to ? <Link to={to} style={{ textDecoration: 'none' }}>{content}</Link> : content;
@@ -58,7 +58,7 @@ export default function DashboardPage() {
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>
           Welcome back, {user?.full_name?.split(' ')[0]} 👋
         </h1>
-        <p style={{ color: '#64748b' }}>Here's your Golf Impact overview</p>
+        <p style={{ color: 'var(--text-muted)' }}>Here's your Golf Impact overview</p>
       </div>
 
       {/* Subscription alert */}
@@ -68,7 +68,7 @@ export default function DashboardPage() {
           <AlertCircle size={20} color="#fbbf24" />
           <div>
             <p style={{ fontWeight: 600, color: '#fbbf24', fontSize: '0.9rem' }}>No active subscription</p>
-            <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Subscribe to participate in monthly draws and win prizes.</p>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Subscribe to participate in monthly draws and win prizes.</p>
           </div>
           <Link to="/dashboard/subscription" className="btn-primary" style={{ marginLeft: 'auto', padding: '0.5rem 1rem', fontSize: '0.85rem', textDecoration: 'none', whiteSpace: 'nowrap' }}>
             Subscribe
@@ -88,22 +88,22 @@ export default function DashboardPage() {
       {/* Recent Scores */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', padding: '1.5rem' }}>
+          style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '16px', padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
             <h3 style={{ fontWeight: 700, fontSize: '1rem' }}>Recent Scores</h3>
-            <Link to="/dashboard/scores" style={{ fontSize: '0.8rem', color: '#818cf8', textDecoration: 'none' }}>View all →</Link>
+            <Link to="/dashboard/scores" style={{ fontSize: '0.8rem', color: 'var(--color-primary-light)', textDecoration: 'none' }}>View all →</Link>
           </div>
           {scores.length === 0 ? (
-            <p style={{ color: '#64748b', fontSize: '0.875rem', textAlign: 'center', padding: '1.5rem 0' }}>No scores yet. <Link to="/dashboard/scores" style={{ color: '#818cf8' }}>Add your first score →</Link></p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', textAlign: 'center', padding: '1.5rem 0' }}>No scores yet. <Link to="/dashboard/scores" style={{ color: 'var(--color-primary-light)' }}>Add your first score →</Link></p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {scores.slice(0, 5).map((score) => (
-                <div key={score.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.625rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                <div key={score.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.625rem 0', borderBottom: '1px solid var(--bg-border-light)' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(34,197,94,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.875rem', color: '#22C55E' }}>
                       {score.score}
                     </div>
-                    <span style={{ fontSize: '0.8rem', color: '#64748b' }}>{new Date(score.score_date).toLocaleDateString()}</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{new Date(score.score_date).toLocaleDateString()}</span>
                   </div>
                   <TrendingUp size={14} color="#34d399" />
                 </div>
@@ -114,20 +114,20 @@ export default function DashboardPage() {
 
         {/* Winnings */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-          style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '16px', padding: '1.5rem' }}>
+          style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '16px', padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
             <h3 style={{ fontWeight: 700, fontSize: '1rem' }}>Recent Winnings</h3>
-            <Link to="/dashboard/rewards" style={{ fontSize: '0.8rem', color: '#818cf8', textDecoration: 'none' }}>View all →</Link>
+            <Link to="/dashboard/rewards" style={{ fontSize: '0.8rem', color: 'var(--color-primary-light)', textDecoration: 'none' }}>View all →</Link>
           </div>
           {winnings.length === 0 ? (
-            <p style={{ color: '#64748b', fontSize: '0.875rem', textAlign: 'center', padding: '1.5rem 0' }}>No winnings yet. Keep playing — your draw entry is auto-generated! 🎯</p>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', textAlign: 'center', padding: '1.5rem 0' }}>No winnings yet. Keep playing — your draw entry is auto-generated! 🎯</p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {winnings.slice(0, 4).map((w) => (
-                <div key={w.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.625rem 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                <div key={w.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.625rem 0', borderBottom: '1px solid var(--bg-border-light)' }}>
                   <div>
                     <p style={{ fontWeight: 600, fontSize: '0.85rem' }}>${parseFloat(w.prize_amount).toFixed(2)}</p>
-                    <p style={{ fontSize: '0.75rem', color: '#64748b' }}>{w.draws?.draw_type?.toUpperCase()}</p>
+                    <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{w.draws?.draw_type?.toUpperCase()}</p>
                   </div>
                   <span className={`badge ${w.status === 'paid' ? 'badge-success' : w.status === 'approved' ? 'badge-info' : 'badge-warning'}`}>
                     {w.status}

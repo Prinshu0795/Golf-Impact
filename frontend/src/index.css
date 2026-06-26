@@ -65,7 +65,7 @@
   --bg-card-hover: #F1F5F9;
   --bg-elevated: #FFFFFF;
   --bg-border: rgba(21, 128, 61, 0.2);
-  --bg-border-light: rgba(0, 0, 0, 0.08);
+  --bg-border-light: #E5E7EB;
 
   --text-primary: #111827;
   --text-secondary: #374151;
@@ -546,18 +546,18 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 [data-theme='light'] .glass {
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid #E5E7EB;
 }
 
 [data-theme='light'] .glass-strong {
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #E5E7EB;
 }
 
 [data-theme='light'] .card {
   background: #F8FAFC;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid #E5E7EB;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
@@ -568,9 +568,9 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 [data-theme='light'] .btn-secondary {
-  background: rgba(0, 0, 0, 0.04);
+  background: #FFFFFF;
   color: #111827;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #E5E7EB;
 }
 
 [data-theme='light'] .btn-secondary:hover {
@@ -580,7 +580,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 [data-theme='light'] .input-field {
   background: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #E5E7EB;
   color: #111827;
 }
 

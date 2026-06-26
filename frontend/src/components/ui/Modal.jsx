@@ -24,7 +24,7 @@ export default function Modal({ isOpen, onClose, title, children, maxWidth = '48
           {title && (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
               <h3 style={{ fontSize: '1.125rem', fontWeight: 700 }}>{title}</h3>
-              <button onClick={onClose} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', padding: '0.375rem', cursor: 'pointer', color: '#94a3b8', display: 'flex' }}>
+              <button onClick={onClose} style={{ background: 'var(--bg-surface)', border: '1px solid var(--bg-border-light)', borderRadius: '8px', padding: '0.375rem', cursor: 'pointer', color: 'var(--text-muted)', display: 'flex' }}>
                 <X size={16} />
               </button>
             </div>

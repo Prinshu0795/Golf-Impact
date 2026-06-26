@@ -51,7 +51,7 @@ export default function AdminDraw() {
     <div>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Draw Engine</h1>
-        <p style={{ color: '#64748b' }}>Configure, simulate, run, and publish draws</p>
+        <p style={{ color: 'var(--text-muted)' }}>Configure, simulate, run, and publish draws</p>
       </div>
 
       {/* Mode selector */}
@@ -60,8 +60,8 @@ export default function AdminDraw() {
           <button key={m} onClick={() => setMode(m)}
             style={{ padding: '0.5rem 1.25rem', borderRadius: '8px', fontWeight: 600, fontSize: '0.875rem', cursor: 'pointer', transition: 'all 0.2s',
               background: mode === m ? 'rgba(99,102,241,0.15)' : 'transparent',
-              border: mode === m ? '1px solid rgba(99,102,241,0.35)' : '1px solid rgba(255,255,255,0.08)',
-              color: mode === m ? '#818cf8' : '#64748b',
+              border: mode === m ? '1px solid rgba(99,102,241,0.35)' : '1px solid var(--bg-border-light)',
+              color: mode === m ? 'var(--color-primary-light)' : 'var(--text-muted)',
             }}>
             {m === 'simulate' ? '🧪 Simulate' : '🎲 Run Draw'}
           </button>
@@ -71,11 +71,11 @@ export default function AdminDraw() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', alignItems: 'start' }}>
         {/* Config Form */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)', padding: '1.5rem' }}>
+          style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)', padding: '1.5rem' }}>
           <h3 style={{ fontWeight: 700, marginBottom: '1.25rem' }}>Draw Configuration</h3>
           <form onSubmit={handleSubmit(mode === 'simulate' ? onSimulate : onRunDraw)} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Draw Type</label>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Draw Type</label>
               <select {...register('draw_type')} className="input-field">
                 <option value="5match">5 Match (40% prize pool)</option>
                 <option value="4match">4 Match (35% prize pool)</option>
@@ -83,23 +83,23 @@ export default function AdminDraw() {
               </select>
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Draw Mode</label>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Draw Mode</label>
               <select {...register('mode')} className="input-field">
                 <option value="random">Random</option>
                 <option value="algorithmic">Algorithmic (Weighted by score frequency)</option>
               </select>
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Draw Date</label>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Draw Date</label>
               <input {...register('draw_date')} type="date" className="input-field" defaultValue={new Date().toISOString().split('T')[0]} />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Jackpot Rollover ($)</label>
+              <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Jackpot Rollover ($)</label>
               <input {...register('jackpot_amount')} type="number" min="0" step="0.01" className="input-field" placeholder="0.00" />
             </div>
             {mode === 'simulate' && (
               <div>
-                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Prize Pool ($)</label>
+                <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Prize Pool ($)</label>
                 <input {...register('prize_pool')} type="number" min="0" step="0.01" className="input-field" placeholder="0.00" />
               </div>
             )}
@@ -114,13 +114,13 @@ export default function AdminDraw() {
           {simResult && (
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
               style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(99,102,241,0.2)', padding: '1.5rem', marginBottom: '1rem' }}>
-              <h3 style={{ fontWeight: 700, marginBottom: '1.25rem', color: '#818cf8' }}>🧪 Simulation Results</h3>
+              <h3 style={{ fontWeight: 700, marginBottom: '1.25rem', color: 'var(--color-primary-light)' }}>🧪 Simulation Results</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
                 <div>
-                  <p style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.375rem' }}>Winning Numbers</p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginBottom: '0.375rem' }}>Winning Numbers</p>
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                     {simResult.winning_numbers?.map((n) => (
-                      <span key={n} style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3))', border: '1px solid rgba(99,102,241,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#818cf8', fontFamily: 'Outfit' }}>
+                      <span key={n} style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, rgba(99,102,241,0.3), rgba(139,92,246,0.3))', border: '1px solid rgba(99,102,241,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: 'var(--color-primary-light)', fontFamily: 'Outfit' }}>
                         {n}
                       </span>
                     ))}
@@ -128,8 +128,8 @@ export default function AdminDraw() {
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                   {[['Total Entries', simResult.total_entries], ['Winners', simResult.winners_count], ['Mode', simResult.mode], ['Type', simResult.draw_type]].map(([l, v]) => (
-                    <div key={l} style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '8px', padding: '0.625rem' }}>
-                      <p style={{ fontSize: '0.7rem', color: '#64748b' }}>{l}</p>
+                    <div key={l} style={{ background: 'var(--bg-border-light)', borderRadius: '8px', padding: '0.625rem' }}>
+                      <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>{l}</p>
                       <p style={{ fontWeight: 600, fontSize: '0.875rem' }}>{v}</p>
                     </div>
                   ))}
@@ -142,7 +142,7 @@ export default function AdminDraw() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
               style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(16,185,129,0.2)', padding: '1.5rem' }}>
               <h3 style={{ fontWeight: 700, marginBottom: '0.5rem', color: '#34d399' }}>✅ Draw Saved</h3>
-              <p style={{ fontSize: '0.85rem', color: '#64748b', marginBottom: '1rem' }}>Draw #{runResult.id?.slice(0, 8)} has been created with status: <strong style={{ color: '#fbbf24' }}>{runResult.status}</strong></p>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1rem' }}>Draw #{runResult.id?.slice(0, 8)} has been created with status: <strong style={{ color: '#fbbf24' }}>{runResult.status}</strong></p>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
                 {runResult.winning_numbers?.map((n) => (
                   <span key={n} style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, color: '#34d399', fontFamily: 'Outfit' }}>
@@ -157,7 +157,7 @@ export default function AdminDraw() {
           )}
 
           {!simResult && !runResult && (
-            <div style={{ textAlign: 'center', padding: '3rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)', color: '#64748b' }}>
+            <div style={{ textAlign: 'center', padding: '3rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)', color: 'var(--text-muted)' }}>
               <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎲</div>
               <p>Configure and run a draw to see results here</p>
             </div>

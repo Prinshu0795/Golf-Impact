@@ -58,17 +58,17 @@ export default function ResetPasswordPage() {
             <Target size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Reset Password</h1>
-          <p style={{ color: '#64748b', fontSize: '0.9rem' }}>Enter your new password below.</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Enter your new password below.</p>
         </div>
 
-        <div style={{ background: 'var(--bg-card)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '20px', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {success ? (
             <div style={{ textAlign: 'center', padding: '1rem 0' }}>
               <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(34, 197, 94, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
                 <CheckCircle size={32} color="#22C55E" />
               </div>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Password Updated</h3>
-              <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '2rem' }}>Your password has been successfully updated.</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '2rem' }}>Your password has been successfully updated.</p>
               <Link to="/login" className="btn-primary" style={{ display: 'inline-flex', padding: '0.75rem 2rem', textDecoration: 'none' }}>
                 Go to Login
               </Link>
@@ -76,7 +76,7 @@ export default function ResetPasswordPage() {
           ) : (
             <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>New Password</label>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>New Password</label>
                 <div style={{ position: 'relative' }}>
                   <Lock size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
                   <input {...register('new_password', { 
@@ -89,7 +89,7 @@ export default function ResetPasswordPage() {
                     })}
                     type={showPw ? 'text' : 'password'} className="input-field" placeholder="Enter new password"
                     style={{ paddingLeft: '2.5rem', paddingRight: '3rem' }} />
-                  <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}>
+                  <button type="button" onClick={() => setShowPw(!showPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
                     {showPw ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>
@@ -97,7 +97,7 @@ export default function ResetPasswordPage() {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: '#94a3b8', marginBottom: '0.5rem' }}>Confirm Password</label>
+                <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Confirm Password</label>
                 <div style={{ position: 'relative' }}>
                   <Lock size={16} color="#64748b" style={{ position: 'absolute', left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }} />
                   <input {...register('confirm_password', { 
@@ -106,7 +106,7 @@ export default function ResetPasswordPage() {
                     })}
                     type={showConfirmPw ? 'text' : 'password'} className="input-field" placeholder="Confirm new password"
                     style={{ paddingLeft: '2.5rem', paddingRight: '3rem' }} />
-                  <button type="button" onClick={() => setShowConfirmPw(!showConfirmPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}>
+                  <button type="button" onClick={() => setShowConfirmPw(!showConfirmPw)} style={{ position: 'absolute', right: '0.875rem', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>
                     {showConfirmPw ? <EyeOff size={16} /> : <Eye size={16} />}
                   </button>
                 </div>

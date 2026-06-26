@@ -42,7 +42,7 @@ export default function CharityPage() {
     <div>
       <div style={{ marginBottom: '2rem' }}>
         <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>My Charity</h1>
-        <p style={{ color: '#64748b' }}>Select the charity to receive your donation from winnings</p>
+        <p style={{ color: 'var(--text-muted)' }}>Select the charity to receive your donation from winnings</p>
       </div>
 
       {/* Current selection */}
@@ -55,7 +55,7 @@ export default function CharityPage() {
             </div>
             <div>
               <p style={{ fontWeight: 700 }}>{selectedCharity.name}</p>
-              <p style={{ fontSize: '0.8rem', color: '#64748b' }}>{selectedCharity.category} • Currently selected</p>
+              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{selectedCharity.category} • Currently selected</p>
             </div>
             <Link to={`/charities/${selectedCharity.id}`} style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.375rem', color: '#34d399', fontSize: '0.85rem', textDecoration: 'none' }}>
               View Profile <ExternalLink size={14} />
@@ -65,17 +65,17 @@ export default function CharityPage() {
       )}
 
       {/* Donation percentage */}
-      <div style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.06)', marginBottom: '2rem' }}>
+      <div style={{ padding: '1.5rem', background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)', marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
           <h3 style={{ fontWeight: 700 }}>Donation Percentage</h3>
           <span style={{ fontWeight: 800, color: '#34d399', fontSize: '1.25rem', fontFamily: 'Outfit' }}>{donationPct}%</span>
         </div>
         <input type="range" min="10" max="100" step="5" value={donationPct} onChange={(e) => setDonationPct(parseInt(e.target.value))}
           style={{ width: '100%', accentColor: '#10b981', cursor: 'pointer', marginBottom: '0.5rem' }} />
-        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: '#64748b' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
           <span>10% (minimum)</span><span>100%</span>
         </div>
-        <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.75rem' }}>
+        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
           From each winning, <strong style={{ color: '#34d399' }}>{donationPct}%</strong> will be donated to {selectedCharity?.name || 'your charity'}.
         </p>
       </div>
@@ -87,15 +87,15 @@ export default function CharityPage() {
           <motion.div key={charity.id} whileHover={{ scale: 1.01 }}
             onClick={() => setSelectedCharity(charity)}
             style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: '14px', cursor: 'pointer',
-              border: selectedCharity?.id === charity.id ? '1px solid rgba(16,185,129,0.4)' : '1px solid rgba(255,255,255,0.06)',
+              border: selectedCharity?.id === charity.id ? '1px solid rgba(16,185,129,0.4)' : '1px solid var(--bg-border-light)',
               background: selectedCharity?.id === charity.id ? 'rgba(16,185,129,0.04)' : 'var(--bg-card)',
               transition: 'all 0.2s' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.625rem' }}>
-              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', background: 'rgba(255,255,255,0.06)', padding: '0.2rem 0.5rem', borderRadius: '6px' }}>{charity.category}</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', background: 'var(--bg-border-light)', padding: '0.2rem 0.5rem', borderRadius: '6px' }}>{charity.category}</span>
               {selectedCharity?.id === charity.id && <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Check size={12} color="white" /></div>}
             </div>
             <h4 style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.375rem' }}>{charity.name}</h4>
-            <p style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.5 }}>{charity.short_description}</p>
+            <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>{charity.short_description}</p>
           </motion.div>
         ))}
       </div>
