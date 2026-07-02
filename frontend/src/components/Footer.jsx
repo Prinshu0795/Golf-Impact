@@ -21,7 +21,7 @@ export default function Footer() {
       padding: '4rem 1.5rem 2rem',
     }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '3rem', marginBottom: '3rem' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
 
           {/* Brand */}
           <div>
@@ -108,10 +108,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{
-          borderTop: '1px solid var(--bg-border-light)', paddingTop: '2rem',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: '1rem',
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left" style={{
+          borderTop: '1px solid var(--bg-border-light)', paddingTop: '2rem'
         }}>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem' }}>
             © {new Date().getFullYear()} Golf Impact. All rights reserved.

@@ -87,33 +87,35 @@ export default function Navbar() {
 
         {/* Right side */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          {isAuthenticated ? (
-            <>
-              {isAdmin && (
-                <Link to="/admin" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#d97706', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
-                  Admin
+          <div className="hidden md:flex items-center gap-3">
+            {isAuthenticated ? (
+              <>
+                {isAdmin && (
+                  <Link to="/admin" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#d97706', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
+                    Admin
+                  </Link>
+                )}
+                <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
+                  Dashboard
                 </Link>
-              )}
-              <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
-                Dashboard
-              </Link>
-              <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
-                Sign Out
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className="btn-secondary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem', textDecoration: 'none' }}>
-                Log In
-              </Link>
-              <Link to="/signup" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem', textDecoration: 'none' }}>
-                Get Started
-              </Link>
-            </>
-          )}
+                <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" className="btn-secondary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem', textDecoration: 'none' }}>
+                  Log In
+                </Link>
+                <Link to="/signup" className="btn-primary" style={{ padding: '0.5rem 1.25rem', fontSize: '0.9rem', textDecoration: 'none' }}>
+                  Get Started
+                </Link>
+              </>
+            )}
+          </div>
 
           {/* Mobile toggle */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)', padding: '0.25rem' }} className="mobile-menu-btn">
+          <button onClick={() => setMobileOpen(!mobileOpen)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)', padding: '0.5rem' }} className="mobile-menu-btn">
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -153,6 +155,32 @@ export default function Navbar() {
             ))}
 
             {/* mobile theme toggle was here */}
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {isAuthenticated ? (
+                <>
+                  {isAdmin && (
+                    <Link to="/admin" onClick={() => setMobileOpen(false)} style={{ textAlign: 'center', padding: '0.75rem 1rem', borderRadius: '8px', background: 'rgba(245,158,11,0.12)', border: '1px solid rgba(245,158,11,0.3)', color: '#d97706', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>
+                      Admin
+                    </Link>
+                  )}
+                  <Link to="/dashboard" onClick={() => setMobileOpen(false)} style={{ textAlign: 'center', padding: '0.75rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>
+                    Dashboard
+                  </Link>
+                  <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="btn-secondary" style={{ width: '100%', padding: '0.75rem 1rem', fontSize: '1rem' }}>
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/login" onClick={() => setMobileOpen(false)} className="btn-secondary" style={{ textAlign: 'center', padding: '0.75rem 1.25rem', fontSize: '1rem', textDecoration: 'none' }}>
+                    Log In
+                  </Link>
+                  <Link to="/signup" onClick={() => setMobileOpen(false)} className="btn-primary" style={{ textAlign: 'center', padding: '0.75rem 1.25rem', fontSize: '1rem', textDecoration: 'none' }}>
+                    Get Started
+                  </Link>
+                </>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

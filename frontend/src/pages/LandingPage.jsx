@@ -193,7 +193,7 @@ function CharityShowcase() {
   return (
     <section id="charities" style={{ padding: '6rem 1.5rem' }}>
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <AnimatedSection style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+        <AnimatedSection className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <motion.div variants={fadeUp}>
             <p style={{ color: '#34d399', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Charity Impact</p>
             <h2 style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 800, marginBottom: '1.25rem' }}>
@@ -218,7 +218,7 @@ function CharityShowcase() {
             </Link>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {charities.map(({ name, category, raised, color, emoji }) => (
               <AnimatedSection key={name}>
                 <motion.div variants={fadeUp} className="card" style={{ padding: '1.25rem', textAlign: 'center' }}>
@@ -234,11 +234,6 @@ function CharityShowcase() {
         </AnimatedSection>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          #charities .grid-2col { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

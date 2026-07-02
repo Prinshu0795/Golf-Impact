@@ -68,7 +68,7 @@ export default function AdminDraw() {
         ))}
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', alignItems: 'start' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
         {/* Config Form */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
           style={{ background: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--bg-border-light)', padding: '1.5rem' }}>

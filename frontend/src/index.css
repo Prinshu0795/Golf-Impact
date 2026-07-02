@@ -535,7 +535,7 @@ input[type='number']::-webkit-outer-spin-button {
   border-radius: var(--radius-xl);
   width: 100%;
   max-width: 480px;
-  padding: 2rem;
+  padding: clamp(1.25rem, 5vw, 2rem);
   animation: fadeInUp 0.3s ease;
 }
 

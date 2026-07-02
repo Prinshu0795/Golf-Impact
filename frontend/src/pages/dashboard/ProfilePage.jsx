@@ -71,7 +71,7 @@ export default function ProfilePage() {
           <User size={18} color="#22C55E" /> Personal Information
         </h3>
         <form onSubmit={handleSubmit(onProfileSave)} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>Full Name</label>
               <input {...register('full_name', { required: true })} type="text" className="input-field" />
@@ -107,7 +107,7 @@ export default function ProfilePage() {
             <input {...regPw('current_password', { required: 'Required' })} type="password" className="input-field" />
             {pwErrors.current_password && <p style={{ color: '#f87171', fontSize: '0.75rem', marginTop: '0.25rem' }}>{pwErrors.current_password.message}</p>}
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label style={{ display: 'block', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>New Password</label>
               <input {...regPw('new_password', { required: 'Required', minLength: { value: 8, message: 'Min 8 chars' } })} type="password" className="input-field" />

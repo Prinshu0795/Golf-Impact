@@ -88,7 +88,7 @@ export default function AdminCharities() {
       </div>
 
       {loading ? <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '3rem' }}><Spinner size={32} /></div> : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
           {charities.map((c) => (
             <motion.div key={c.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               style={{ padding: '1.25rem', background: 'var(--bg-card)', borderRadius: '14px', border: `1px solid ${c.is_active ? 'var(--bg-border-light)' : 'rgba(239,68,68,0.15)'}` }}>

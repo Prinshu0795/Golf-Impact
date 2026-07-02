@@ -44,7 +44,7 @@ export default function CharityProfilePage() {
       </div>
 
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem', alignItems: 'start' }}>
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-start">
           {/* Main content */}
           <div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -106,11 +106,6 @@ export default function CharityProfilePage() {
         </div>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .charity-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

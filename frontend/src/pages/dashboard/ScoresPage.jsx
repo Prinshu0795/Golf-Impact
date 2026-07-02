@@ -133,7 +133,7 @@ export default function ScoresPage() {
             {scores.map((score, i) => (
               <motion.div key={score.id} variants={fadeUp} initial="hidden" animate="visible" exit={{ opacity: 0, x: -20 }}
                 transition={{ delay: i * 0.05 }}
-                style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '14px', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '14px', padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
                 {/* Score number */}
                 <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2))', border: '1px solid rgba(99,102,241,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '1.25rem', color: 'var(--color-primary-light)', fontFamily: 'Outfit', flexShrink: 0 }}>
                   {score.score}

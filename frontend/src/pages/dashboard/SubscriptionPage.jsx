@@ -482,9 +482,9 @@ export default function SubscriptionPage() {
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>No transactions yet.</p>
           </div>
         ) : (
-          <div style={{
+          <div className="overflow-x-auto" style={{
             background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)',
-            borderRadius: '16px', overflow: 'hidden',
+            borderRadius: '16px'
           }}>
             <table className="data-table" style={{ width: '100%' }}>
               <thead>

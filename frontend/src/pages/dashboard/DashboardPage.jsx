@@ -86,7 +86,7 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* Recent Scores */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '16px', padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
@@ -139,11 +139,6 @@ export default function DashboardPage() {
         </motion.div>
       </div>
 
-      <style>{`
-        @media (max-width: 640px) {
-          .grid-2col { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

@@ -229,7 +229,7 @@ export default function SupportPage() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label style={{ display: 'block', fontWeight: 600, fontSize: '0.85rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
                     Your Name *
@@ -307,11 +307,6 @@ export default function SupportPage() {
         </motion.div>
       </section>
 
-      <style>{`
-        @media (max-width: 640px) {
-          form > div:first-child { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </div>
   );
 }

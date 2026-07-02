@@ -56,7 +56,7 @@ export default function AdminUsers() {
       {loading ? (
         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '3rem' }}><Spinner size={32} /></div>
       ) : (
-        <div style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '16px', overflow: 'hidden' }}>
+        <div className="overflow-x-auto" style={{ background: 'var(--bg-card)', border: '1px solid var(--bg-border-light)', borderRadius: '16px' }}>
           <table className="data-table">
             <thead>
               <tr>
