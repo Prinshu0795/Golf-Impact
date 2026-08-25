@@ -80,7 +80,7 @@ export default function DashboardLayout() {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: 'transparent' }}>
       {/* Desktop Sidebar */}
       <aside style={{ width: '260px', background: 'var(--bg-surface)', borderRight: '1px solid rgba(255,255,255,0.05)', flexShrink: 0, position: 'sticky', top: 0, height: '100vh', overflowY: 'auto' }} className="desktop-sidebar">
         <SidebarContent />

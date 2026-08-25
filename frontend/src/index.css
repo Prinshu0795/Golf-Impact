@@ -16,6 +16,7 @@
 
   /* Dark Background System (default) */
   --bg-base: #0B1120;
+  --bg-image-overlay: linear-gradient(rgba(11, 17, 32, 0.85), rgba(11, 17, 32, 0.95));
   --bg-surface: #0f172a;
   --bg-card: #111827;
   --bg-card-hover: #1f2937;
@@ -60,6 +61,7 @@
 /* ─── LIGHT THEME ────────────────────────────────────────────────────────── */
 [data-theme='light'] {
   --bg-base: #FFFFFF;
+  --bg-image-overlay: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95));
   --bg-surface: #F8FAFC;
   --bg-card: #F8FAFC;
   --bg-card-hover: #F1F5F9;
@@ -108,6 +110,11 @@ html {
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background-color: var(--bg-base);
+  background-image: var(--bg-image-overlay), url('./assets/GolfImpact.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;

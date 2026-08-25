@@ -71,7 +71,7 @@ export default function AdminLayout() {
   );
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-base)' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: 'transparent' }}>
       {/* Admin Sidebar */}
       <aside className="hidden md:flex flex-col flex-shrink-0 sticky top-0 h-screen overflow-y-auto" style={{ width: '240px', background: '#09090e', borderRight: '1px solid rgba(245,158,11,0.15)' }}>
         <SidebarContent />
