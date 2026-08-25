@@ -53,9 +53,9 @@ export default function Navbar() {
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
           <div style={{
             width: '36px', height: '36px', borderRadius: '10px',
-            background: 'linear-gradient(135deg, #22C55E, #15803D)',
+            background: 'var(--color-primary)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 20px rgba(34,197,94,0.3)',
+            boxShadow: 'none',
           }}>
             <Target size={20} color="white" />
           </div>
@@ -95,7 +95,7 @@ export default function Navbar() {
                     Admin
                   </Link>
                 )}
-                <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
+                <Link to="/dashboard" style={{ padding: '0.5rem 1rem', borderRadius: '8px', background: 'rgba(22,101,52,0.12)', border: '1px solid rgba(22,101,52,0.25)', color: 'var(--color-primary)', fontSize: '0.85rem', fontWeight: 600, textDecoration: 'none' }}>
                   Dashboard
                 </Link>
                 <button onClick={handleLogout} className="btn-secondary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem' }}>
@@ -163,7 +163,7 @@ export default function Navbar() {
                       Admin
                     </Link>
                   )}
-                  <Link to="/dashboard" onClick={() => setMobileOpen(false)} style={{ textAlign: 'center', padding: '0.75rem 1rem', borderRadius: '8px', background: 'rgba(99,102,241,0.12)', border: '1px solid rgba(99,102,241,0.25)', color: 'var(--color-primary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>
+                  <Link to="/dashboard" onClick={() => setMobileOpen(false)} style={{ textAlign: 'center', padding: '0.75rem 1rem', borderRadius: '8px', background: 'rgba(22,101,52,0.12)', border: '1px solid rgba(22,101,52,0.25)', color: 'var(--color-primary)', fontSize: '1rem', fontWeight: 600, textDecoration: 'none' }}>
                     Dashboard
                   </Link>
                   <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="btn-secondary" style={{ width: '100%', padding: '0.75rem 1rem', fontSize: '1rem' }}>

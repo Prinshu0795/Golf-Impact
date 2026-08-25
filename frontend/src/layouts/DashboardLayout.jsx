@@ -27,16 +27,16 @@ export default function DashboardLayout() {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '1.5rem 1rem' }}>
       {/* Logo */}
       <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none' }}>
-        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Target size={18} color="white" />
         </div>
         <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>Golf Impact</span>
       </Link>
 
       {/* User Card */}
-      <div style={{ padding: '1rem', background: 'rgba(34,197,94,0.06)', borderRadius: '12px', border: '1px solid rgba(34,197,94,0.12)', marginBottom: '1.5rem' }}>
+      <div style={{ padding: '1rem', background: 'rgba(22,101,52,0.06)', borderRadius: '12px', border: '1px solid rgba(22,101,52,0.12)', marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
+          <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', fontWeight: 700, color: 'white' }}>
             {user?.full_name?.[0] || 'U'}
           </div>
           <div style={{ overflow: 'hidden' }}>

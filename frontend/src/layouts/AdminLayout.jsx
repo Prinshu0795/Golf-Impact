@@ -23,7 +23,7 @@ export default function AdminLayout() {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '1.5rem 1rem' }}>
       <div style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-          <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #f59e0b, #d97706)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--color-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Target size={18} color="white" />
           </div>
           <span style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: '1rem', color: '#fbbf24' }}>Admin Panel</span>
@@ -73,7 +73,7 @@ export default function AdminLayout() {
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'transparent' }}>
       {/* Admin Sidebar */}
-      <aside className="hidden md:flex flex-col flex-shrink-0 sticky top-0 h-screen overflow-y-auto" style={{ width: '240px', background: '#09090e', borderRight: '1px solid rgba(245,158,11,0.15)' }}>
+      <aside className="hidden md:flex flex-col flex-shrink-0 sticky top-0 h-screen overflow-y-auto" style={{ width: '240px', background: 'var(--bg-surface)', borderRight: '1px solid var(--bg-border)' }}>
         <SidebarContent />
       </aside>
 
@@ -88,7 +88,7 @@ export default function AdminLayout() {
             <motion.aside
               initial={{ x: -240 }} animate={{ x: 0 }} exit={{ x: -240 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              style={{ position: 'fixed', top: 0, left: 0, bottom: 0, width: '240px', background: '#09090e', zIndex: 201, overflowY: 'auto', borderRight: '1px solid rgba(245,158,11,0.15)' }}
+              style={{ position: 'fixed', top: 0, left: 0, bottom: 0, width: '240px', background: 'var(--bg-surface)', zIndex: 201, overflowY: 'auto', borderRight: '1px solid var(--bg-border)' }}
             >
               <SidebarContent />
             </motion.aside>
@@ -99,7 +99,7 @@ export default function AdminLayout() {
       {/* Main */}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
         {/* Mobile topbar */}
-        <div className="flex md:hidden items-center justify-between p-4 border-b" style={{ background: '#09090e', borderColor: 'rgba(245,158,11,0.15)' }}>
+        <div className="flex md:hidden items-center justify-between p-4 border-b" style={{ background: 'var(--bg-surface)', borderColor: 'var(--bg-border)' }}>
           <button onClick={() => setSidebarOpen(true)} className="text-amber-400 bg-transparent border-none cursor-pointer p-1">
             <Menu size={24} />
           </button>
