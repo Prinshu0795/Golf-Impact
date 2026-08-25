@@ -25,11 +25,8 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-              <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'linear-gradient(135deg, #6366f1, #8b5cf6)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Target size={18} color="white" />
-              </div>
-              <span style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: '1.1rem', background: 'linear-gradient(135deg, #6366f1, #a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Golf Impact</span>
+            <div style={{ marginBottom: '1rem' }}>
+              <img src="/logo.png" alt="GolfImpact" style={{ width: '150px', height: 'auto', maxWidth: '100%' }} />
             </div>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: '240px' }}>
               Track your performance, win rewards, and make a real difference for charities you care about.

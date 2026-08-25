@@ -50,18 +50,8 @@ export default function Navbar() {
     }}>
       <div className="premium-container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
         {/* Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
-          <div style={{
-            width: '36px', height: '36px', borderRadius: '10px',
-            background: 'var(--color-primary)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: 'none',
-          }}>
-            <Target size={20} color="white" />
-          </div>
-          <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, fontSize: '1.25rem', color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>
-            Golf Impact
-          </span>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          <img src="/logo.png" alt="GolfImpact" style={{ width: '140px', height: 'auto', maxWidth: '100%' }} />
         </Link>
 
         {/* Desktop Nav */}

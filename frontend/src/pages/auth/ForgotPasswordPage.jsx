@@ -33,9 +33,7 @@ export default function ForgotPasswordPage() {
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
         style={{ width: '100%', maxWidth: '420px', position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #22C55E, #15803D)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', boxShadow: '0 0 30px rgba(34,197,94,0.3)' }}>
-            <Target size={28} color="white" />
-          </div>
+          <img src="/logo.png" alt="GolfImpact" style={{ width: '180px', height: 'auto', maxWidth: '100%', margin: '0 auto 1rem' }} />
           <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.25rem' }}>Forgot Your Password?</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Enter your email and we'll send a secure reset link.</p>
         </div>

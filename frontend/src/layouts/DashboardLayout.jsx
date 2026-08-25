@@ -26,11 +26,8 @@ export default function DashboardLayout() {
   const SidebarContent = () => (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', padding: '1.5rem 1rem' }}>
       {/* Logo */}
-      <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', textDecoration: 'none' }}>
-        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Target size={18} color="white" />
-        </div>
-        <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>Golf Impact</span>
+      <Link to="/" style={{ display: 'flex', alignItems: 'center', marginBottom: '2rem', textDecoration: 'none' }}>
+        <img src="/logo.png" alt="GolfImpact" style={{ width: '130px', height: 'auto', maxWidth: '100%' }} />
       </Link>
 
       {/* User Card */}
@@ -112,7 +109,7 @@ export default function DashboardLayout() {
           <button onClick={() => setSidebarOpen(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-primary)' }}>
             <Menu size={24} />
           </button>
-          <span style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.03em' }}>Golf Impact</span>
+          <img src="/logo.png" alt="GolfImpact" style={{ width: '120px', height: 'auto' }} />
           <div style={{ width: '24px' }} />
         </div>
 
