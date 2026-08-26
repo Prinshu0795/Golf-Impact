@@ -6,6 +6,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import ToastContainer from './components/ui/ToastContainer';
 import FloatingThemeToggle from './components/FloatingThemeToggle';
 import { ProtectedRoute, AdminRoute, PublicRoute } from './components/RouteGuards';
+import Chatbot from './components/Chatbot';
 
 // Layouts
 import MainLayout from './layouts/MainLayout';
@@ -47,6 +48,7 @@ function App() {
             <ToastProvider>
               <ToastContainer />
               <FloatingThemeToggle />
+              <Chatbot />
               <Routes>
                 {/* Public routes */}
                 <Route element={<MainLayout />}>

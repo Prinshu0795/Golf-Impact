@@ -14,6 +14,7 @@ const winnerRoutes = require('./src/routes/winner.routes');
 const adminRoutes = require('./src/routes/admin.routes');
 const paymentRoutes = require('./src/routes/payment.routes');
 const supportRoutes = require('./src/routes/support.routes');
+const chatRoutes = require('./src/routes/chat.routes');
 const { errorHandler, notFound } = require('./src/middleware/errorHandler');
 
 const app = express();
@@ -83,6 +84,7 @@ app.use('/api/winners', winnerRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/support', supportRoutes);
+app.use('/api/chat', chatRoutes);
 
 // ─── ERROR HANDLING ──────────────────────────────────────────────────────
 app.use(notFound);
